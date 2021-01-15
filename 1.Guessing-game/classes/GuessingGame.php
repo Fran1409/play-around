@@ -11,6 +11,9 @@ class GuessingGame
         // We ask for the max guesses when someone creates a game
         // Allowing your settings to be chosen like this, will bring a lot of flexibility
         $this->maxGuesses = $maxGuesses;
+        if(!empty($_SESSION['secretNumber'])){
+            $this->secretNumber = $_SESSION['secretNumber'];
+        }
     }
 
     public function run()
@@ -20,9 +23,18 @@ class GuessingGame
 
         // TODO: check if a secret number has been generated yet
         // --> if not, generate one and store it in the session (so it can be kept when the user submits the form)
+        session_start();
+        if(empty($this->secretNumber)){
+            $this->generateSecretNumber();
+        }
         // TODO: check if the player has submitted a guess
         // --> if so, check if the player won (run the related function) or not (give a hint if the number was higher/lower or run playerLoses if all guesses are used).
         // TODO as an extra: if a reset button was clicked, use the reset function to set up a new game
+    }
+
+    public function generateSecretNumber(){
+        $_SESSION['secretNumber'] = $this->secretNumber;
+        $this->secretNumber = rand(1,22);
     }
 
     public function playerWins()
