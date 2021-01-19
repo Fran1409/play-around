@@ -85,8 +85,10 @@ class GuessingGame
 
     public function reset()
     {
-        $this->guesses = 0;
-        $_SESSION["guesses"] = 0;
-        $this->generateSecretNumber();
+        // remove all session variables
+        session_unset();
+
+        // destroy the session
+        session_destroy();
     }
 }
