@@ -27,7 +27,7 @@ class GuessingGame
         // This function functions as your game "engine"
         // It will run every time, check what needs to happen and run the according functions (or even create other classes)
 
-        // TODO: check if a secret number has been generated yet
+        // Check if a secret number has been generated yet
         // --> if not, generate one and store it in the session (so it can be kept when the user submits the form)
         if(empty($this->secretNumber)){
             $this->generateSecretNumber();
@@ -36,7 +36,7 @@ class GuessingGame
         echo $this->secretNumber.'<br>';
         echo $_SESSION['secretNumber'];
 
-        // TODO: check if the player has submitted a guess
+        // Check if the player has submitted a guess
         // --> if so, check if the player won (run the related function) or not (give a hint if the number was higher/lower or run playerLoses if all guesses are used).
         if(!empty($_POST['submit'])){
             $this->guesses++;
@@ -69,22 +69,22 @@ class GuessingGame
 
     public function playerWins()
     {
-        $result = "You win! The secret number was ".$this->secretNumber;
+        $this->result = "You win! The secret number was ".$this->secretNumber;
     }
 
     public function playerLoses()
     {
-        $result = "You lose! The secret number was ".$this->secretNumber;
+        $this->result = "You lose! The secret number was ".$this->secretNumber;
     }
 
     public function guessHigher()
     {
-        $result = "Guess higher!";
+        $this->result = "Guess higher!";
     }
 
     public function guessLower()
     {
-        $result = "Guess lower!";
+        $this->result = "Guess lower!";
     }
 
     public function reset()

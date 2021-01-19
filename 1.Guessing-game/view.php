@@ -17,7 +17,7 @@
             <input type="submit" value="Submit" id="submit" name="submit">
         </form>
 
-        <h4><?php $result ?></h4>
+        <h4><?php echo $game->result ?></h4>
     </div>
 </body>
 </html>
