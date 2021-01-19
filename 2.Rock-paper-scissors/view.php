@@ -8,6 +8,18 @@
 	<title>Casino royale - rock, paper, scissors</title>
 </head>
 <body>
-
+	<div class="image">
+        <img src="images/friends.gif" alt="friends">
+    </div>
+    <div class="container">
+        <button id="rock" name="rock">Rock</button>
+        <button id="paper" name="paper">Paper</button>
+        <button id="scissors" name="scissors">Scissors</button>
+        <button id="fire" name="fire">Fire</button>
+        <button id="play" name="submit">PLAY</button> 
+    </div>
+    <div class="result">
+        <h3 id="result">The winner is *DRUMROLLLLL*</h3>
+    </div>
 </body>
 </html>
