@@ -56,11 +56,11 @@ class GuessingGame
     }
 
     public function handleGuess(){
-        if($_POST['guess'] == $this->secretNumber){
-            $this->playerWins();
-        } else if($_POST['guess'] < $this->secretNumber){
+        if($_POST['guess'] == $this->secretNumber && $this->guesses <= $this->maxGuesses){
+            $this->playerWins(); 
+        } else if($_POST['guess'] < $this->secretNumber && $this->guesses < $this->maxGuesses){
             $this->guessHigher();
-        } else if($_POST['guess'] > $this->secretNumber){
+        } else if($_POST['guess'] > $this->secretNumber && $this->guesses < $this->maxGuesses){
             $this->guessLower();
         } else if($_POST['guess'] != $this->secretNumber && $this->guesses >= $this->maxGuesses){
             $this->playerLoses();
