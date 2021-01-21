@@ -22,6 +22,7 @@
     </div>
     <div class="result">
         <h3 id="result">The winner is *DRUMROLLLLL*</h3>
+		<h4><?php echo $game->result ?></h4>
     </div>
 </body>
 </html>
