@@ -17,7 +17,8 @@
 			<input name="paper" type="submit" value="PAPER">
 			<input name="scissors" type="submit" value="SCISSORS">
 			<input name="fire" type="submit" value="FIRE">
-		</form>
+			<input name="playagain" type="submit" value="PLAY AGAIN">
+		</form> 
     </div>
     <div class="result">
         <h3 id="result">The winner is *DRUMROLLLLL*</h3>
