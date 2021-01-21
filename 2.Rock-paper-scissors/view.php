@@ -12,11 +12,12 @@
         <img src="images/friends.gif" alt="friends">
     </div>
     <div class="container">
-        <button id="rock" name="rock">Rock</button>
-        <button id="paper" name="paper">Paper</button>
-        <button id="scissors" name="scissors">Scissors</button>
-        <button id="fire" name="fire">Fire</button>
-        <button id="play" name="submit">PLAY</button> 
+		<form method="post">
+			<input name="rock" type="submit" value="ROCK">
+			<input name="paper" type="submit" value="PAPER">
+			<input name="scissors" type="submit" value="SCISSORS">
+			<input name="fire" type="submit" value="FIRE">
+		</form>
     </div>
     <div class="result">
         <h3 id="result">The winner is *DRUMROLLLLL*</h3>
