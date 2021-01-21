@@ -3,6 +3,7 @@
 class RockPaperScissors
 {
     public $computerPick;
+    public $playerPick;
     public $result;
 
     public function __construct()
@@ -28,12 +29,7 @@ class RockPaperScissors
 
         if(!empty($_POST['rock']) || !empty($_POST['paper']) || !empty($_POST['scissors']) || !empty($_POST['fire'])){
             $this->comparePicks();
-        }
-
-        
-        echo $this->computerPick;
-        echo $_SESSION['computerPick'];
-       
+        }       
     }
 
     public function getComputerPick()
@@ -50,6 +46,22 @@ class RockPaperScissors
         }
         $_SESSION['computerPick'] = $this->computerPick;
     }
+
+    public function getPlayerPick()
+    {
+        if(!empty($_POST['rock'])){
+            $this->playerPick = 'ROCK';
+        } else if(!empty($_POST['paper'])){
+            $this->playerPick = 'PAPER';
+        } else if(!empty($_POST['scissors'])){
+            $this->playerPick = 'SCISSORS';
+        } else if(!empty($_POST['fire'])){
+            $this->playerPick = 'FIRE (beats everything)';
+        } 
+
+        return $this->playerPick;
+    }
+
 
     public function comparePicks()
     {
@@ -114,17 +126,17 @@ class RockPaperScissors
 
     public function playerWins()
     {
-        $this->result = "YOU WIN!";
+        $this->result = 'YOU WIN! You got '.$this->getPlayerPick().' and the other player got '.$this->computerPick.'.';
     }
 
     public function playerLoses()
     {
-        $this->result = "YOU LOSE!";
+        $this->result = 'YOU LOSE! You got '.$this->getPlayerPick().' and the other player got '.$this->computerPick.'.';
     }
 
     public function playerTies()
     {
-        $this->result = "IT'S A TIE!";
+        $this->result = "IT'S A TIE!".' You got '.$this->getPlayerPick().' and the other player got also '.$this->computerPick.'.';
     }
 
     public function playAgain()
@@ -132,5 +144,6 @@ class RockPaperScissors
         $this->computerPick = '';
         $_SESSION['computerPick'] = '0';
         $this->getComputerPick();
+        $this->playerPick = '';
     }
 }
