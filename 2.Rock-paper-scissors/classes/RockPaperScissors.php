@@ -142,7 +142,7 @@ class RockPaperScissors
     public function playAgain()
     {
         $this->computerPick = '';
-        $_SESSION['computerPick'] = '0';
+        $_SESSION['computerPick'] = '';
         $this->getComputerPick();
         $this->playerPick = '';
     }
